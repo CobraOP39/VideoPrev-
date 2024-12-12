@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoPrev - Upload</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            text-align: center;
+            margin: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #ddd;
+            margin-bottom: 20px;
+        }
+
+        /* File Input Button */
+        input[type="file"] {
+            display: none;
+        }
+
+        .upload-btn {
+            background-color: #0078d4;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .upload-btn:hover {
+            background-color: #005ea6;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        .upload-btn:active {
+            background-color: #004c8c;
+        }
+
+        /* Video Preview Container */
+        .video-container {
+            display: none;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .video-container video {
+            max-width: 90%;
+            border-radius: 15px;
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .video-container video:hover {
+            transform: scale(1.05);
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .video-container {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .upload-btn {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Upload Your Video</h1>
+        <p>Select a video to preview it in real-time.</p>
+        <label for="videoFile" class="upload-btn">Select Video</label>
+        <input type="file" id="videoFile" accept="video/*">
+    </header>
+
+    <div class="video-container" id="videoContainer">
+        <video controls id="videoPreview">
+            <p>Your browser does not support the video tag.</p>
+        </video>
+    </div>
+
+    <script>
+        const videoInput = document.getElementById('videoFile');
+        const videoContainer = document.getElementById('videoContainer');
+        const videoPreview = document.getElementById('videoPreview');
+
+        videoInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+
+            if (file) {
+                const videoURL = URL.createObjectURL(file);
+                videoPreview.src = videoURL;
+                videoContainer.style.display = 'block';
+            } else {
+                videoContainer.style.display = 'none';
+            }
+        });
+    </script>
+
+</body>
+</html>

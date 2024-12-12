@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoPrev - Home</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #0078d4;
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #ddd;
+            margin-bottom: 40px;
+        }
+
+        /* Button Styles */
+        .get-started-btn {
+            padding: 15px 30px;
+            font-size: 1.5rem;
+            background-color: #0078d4;
+            color: white;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .get-started-btn:hover {
+            background-color: #005ea6;
+            transform: scale(1.1);
+        }
+
+        .get-started-btn:active {
+            background-color: #004c8c;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .get-started-btn {
+                font-size: 1.2rem;
+                padding: 12px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <h1>Welcome to VideoPrev</h1>
+        <p>Your platform to easily upload and preview videos in real-time.</p>
+        <a href="upload.html" class="get-started-btn">Get Started</a>
+    </div>
+
+</body>
+</html>
