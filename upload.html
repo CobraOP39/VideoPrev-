@@ -6,6 +6,7 @@
     <title>VideoPrev - Upload</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
@@ -27,24 +28,25 @@
         h1 {
             font-size: 2.5rem;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #00AEEF;
         }
 
         p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #BBBBBB;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
+        /* Upload Button */
         .upload-btn {
             background: linear-gradient(90deg, #0078D4, #00AEEF);
-            padding: 15px 30px;
+            padding: 15px 35px;
             font-size: 1.2rem;
             border-radius: 30px;
             color: white;
-            cursor: pointer;
             border: none;
+            cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -53,15 +55,30 @@
             box-shadow: 0 8px 20px rgba(0, 174, 239, 0.5);
         }
 
-        .video-container {
-            margin-top: 30px;
+        .upload-btn:focus {
+            outline: none;
+        }
+
+        input[type="file"] {
             display: none;
+        }
+
+        /* Video Container */
+        .video-container {
+            margin-top: 40px;
+            display: none;
+            max-width: 90%;
         }
 
         video {
             max-width: 100%;
             border-radius: 15px;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+
+        video:hover {
+            transform: scale(1.03);
         }
 
         @media (max-width: 768px) {
@@ -69,9 +86,13 @@
                 font-size: 2rem;
             }
 
+            p {
+                font-size: 1rem;
+            }
+
             .upload-btn {
                 font-size: 1rem;
-                padding: 12px 24px;
+                padding: 10px 20px;
             }
         }
     </style>
@@ -79,9 +100,10 @@
 <body>
 
     <h1>Upload Your Video</h1>
-    <p>Select a video to preview it in real-time.</p>
-    <label class="upload-btn" for="videoFile">Select Video</label>
-    <input type="file" id="videoFile" accept="video/*" style="display: none;">
+    <p>Choose a video file to preview it instantly.</p>
+    
+    <label for="videoFile" class="upload-btn">Choose File</label>
+    <input type="file" id="videoFile" accept="video/*">
 
     <div class="video-container" id="videoContainer">
         <video controls id="videoPreview"></video>
